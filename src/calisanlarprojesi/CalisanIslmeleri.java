@@ -62,6 +62,21 @@ public class CalisanIslmeleri {
         }
     }
     
+    public void calisanSil(int id){
+        
+            String sorgu = "Delete from calisanlar where id = ?";
+        try {
+            prepareStatement = con.prepareCall(sorgu);
+            prepareStatement.setInt(1,id);
+            prepareStatement.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CalisanIslmeleri.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+            
+    }
+    
     public void calisanEkle(String ad,String soyad,String departman,String maas){
     
         String sorgu = "Insert Into calisanlar (ad,soyad,departman,maas) VALUES (?, ?, ?, ?)";
