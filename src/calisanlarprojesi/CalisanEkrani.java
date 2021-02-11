@@ -46,6 +46,18 @@ public class CalisanEkrani extends javax.swing.JDialog {
         calisan_tablosu = new javax.swing.JTable();
         arama_cubugu = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        ad_alani = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        soyad_alani = new javax.swing.JTextField();
+        departman_alani = new javax.swing.JTextField();
+        maas_alani = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        mesaj_alani = new javax.swing.JLabel();
+        calisan_ekle = new javax.swing.JButton();
+        guncelle = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,6 +75,11 @@ public class CalisanEkrani extends javax.swing.JDialog {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        calisan_tablosu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calisan_tablosuMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(calisan_tablosu);
@@ -85,17 +102,68 @@ public class CalisanEkrani extends javax.swing.JDialog {
             }
         });
 
+        ad_alani.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ad_alaniActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Ad:");
+
+        jLabel2.setText("Soyad: ");
+
+        jLabel3.setText("Departman:");
+
+        jLabel4.setText("Maaş:");
+
+        mesaj_alani.setForeground(new java.awt.Color(0, 0, 153));
+
+        calisan_ekle.setText("Yeni Çalışan Ekle");
+
+        guncelle.setText("Çalışan Güncelle");
+        guncelle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guncelleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
-                    .addComponent(arama_cubugu))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(509, 509, 509)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ad_alani)
+                            .addComponent(soyad_alani)
+                            .addComponent(departman_alani)
+                            .addComponent(maas_alani, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                        .addGap(180, 180, 180)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(calisan_ekle, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(guncelle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(mesaj_alani, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(arama_cubugu, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +172,34 @@ public class CalisanEkrani extends javax.swing.JDialog {
                 .addComponent(arama_cubugu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ad_alani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(calisan_ekle))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(soyad_alani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(departman_alani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(guncelle)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(maas_alani, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(mesaj_alani)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -128,6 +222,48 @@ public class CalisanEkrani extends javax.swing.JDialog {
         dinamikAra(ara);
     }//GEN-LAST:event_arama_cubuguKeyReleased
 
+    private void ad_alaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ad_alaniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ad_alaniActionPerformed
+
+    private void calisan_tablosuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calisan_tablosuMouseClicked
+        int selectedrow = calisan_tablosu.getSelectedRow();
+        ad_alani.setText(model.getValueAt(selectedrow, 1).toString());
+        soyad_alani.setText(model.getValueAt(selectedrow, 2).toString());
+        departman_alani.setText(model.getValueAt(selectedrow, 3).toString());
+        maas_alani.setText(model.getValueAt(selectedrow, 4).toString());
+    }//GEN-LAST:event_calisan_tablosuMouseClicked
+
+    private void guncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guncelleActionPerformed
+        
+        String ad = ad_alani.getText();
+        String soyad = soyad_alani.getText();
+        String departman = departman_alani.getText();
+        String maas = maas_alani.getText();
+        
+        int selectedrow = calisan_tablosu.getSelectedColumn();
+        
+        if (selectedrow == -1){
+            if(model.getRowCount()==0){
+            mesaj_alani.setText("Calışanlar Tablosu Boş");
+            }
+            
+            else{
+                mesaj_alani.setText("Lütfen güncellenecek bir çalışan seçin");
+        }
+        }
+        
+        else{
+            
+            int id = (int)model.getValueAt(selectedrow, 0);
+            
+            islemler.calisanGuncelle(id,ad,soyad,departman,maas);
+            calisanGoruntule();
+            mesaj_alani.setText("Çalışan başarıyla güncellendi");
+        
+        }
+    }//GEN-LAST:event_guncelleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,15 +284,10 @@ public class CalisanEkrani extends javax.swing.JDialog {
             }
         }
         
-        
-        
-        
-        
-        
-        
-        
+   
     }
     public static void main(String args[]) {
+      
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -196,9 +327,21 @@ public class CalisanEkrani extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ad_alani;
     private javax.swing.JTextField arama_cubugu;
+    private javax.swing.JButton calisan_ekle;
     private javax.swing.JTable calisan_tablosu;
+    private javax.swing.JTextField departman_alani;
+    private javax.swing.JButton guncelle;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField maas_alani;
+    private javax.swing.JLabel mesaj_alani;
+    private javax.swing.JTextField soyad_alani;
     // End of variables declaration//GEN-END:variables
 }

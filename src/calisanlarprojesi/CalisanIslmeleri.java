@@ -43,6 +43,45 @@ public class CalisanIslmeleri {
 
     }
     
+    public void calisanGuncelle(int id,String yad,String ysoyad,String ydepartman,String ymaas){
+    
+        String sorgu = "UPDATE calisanlar set ad = ? , soyad=? , departman=? , maas=? where id=?";
+        
+        try {
+            prepareStatement = con.prepareStatement(sorgu);
+            
+            prepareStatement.setString(1, yad);
+            prepareStatement.setString(2, ysoyad);
+            prepareStatement.setString(3, ydepartman);
+            prepareStatement.setString(4, ymaas);
+            prepareStatement.setInt(5, id);
+            
+            prepareStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CalisanIslmeleri.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void calisanEkle(String ad,String soyad,String departman,String maas){
+    
+        String sorgu = "Insert Into calisanlar (ad,soyad,departman,maas) VALUES (?, ?, ?, ?)";
+        
+        try {
+            prepareStatement = con.prepareStatement(sorgu);
+            
+            prepareStatement.setString(1, ad);
+            prepareStatement.setString(2, soyad);
+            prepareStatement.setString(3, departman);
+            prepareStatement.setString(4, maas);
+            
+            prepareStatement.executeUpdate();
+            
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(CalisanIslmeleri.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public boolean girisYap(String kullanici,String parola) throws SQLException{
     String sorgu = "Select * from adminler where username= ? and password = ?";
     
