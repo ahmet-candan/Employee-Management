@@ -120,6 +120,11 @@ public class CalisanEkrani extends javax.swing.JDialog {
         mesaj_alani.setForeground(new java.awt.Color(0, 0, 153));
 
         calisan_ekle.setText("Yeni Çalışan Ekle");
+        calisan_ekle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calisan_ekleActionPerformed(evt);
+            }
+        });
 
         guncelle.setText("Çalışan Güncelle");
         guncelle.addActionListener(new java.awt.event.ActionListener() {
@@ -306,6 +311,19 @@ public class CalisanEkrani extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_silActionPerformed
+
+    private void calisan_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calisan_ekleActionPerformed
+        mesaj_alani.setText("");
+        
+        String ad = ad_alani.getText();
+        String soyad = soyad_alani.getText();
+        String departman = departman_alani.getText();
+        String maas = maas_alani.getText();
+        
+        islemler.calisanEkle(ad, soyad, departman, maas);
+        calisanGoruntule();
+        mesaj_alani.setText("Yeni çalışian başarıyla eklendi ");
+    }//GEN-LAST:event_calisan_ekleActionPerformed
 
     /**
      * @param args the command line arguments

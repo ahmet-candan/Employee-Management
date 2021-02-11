@@ -233,6 +233,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Yeni &#xc7;al&#x131;&#x15f;an Ekle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calisan_ekleActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="guncelle">
       <Properties>
